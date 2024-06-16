@@ -1,4 +1,4 @@
-﻿using Data.Entities;
+﻿/*using Data.Entities;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -21,3 +21,4 @@ namespace Data.Configuration
         }
     }
 }
+*/

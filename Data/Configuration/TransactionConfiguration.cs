@@ -19,7 +19,7 @@ namespace Data.Configuration
 
             builder.Property(x => x.Id).UseIdentityColumn();
 
-            builder.HasOne(x => x.AppUser).WithMany(x => x.Transactions).HasForeignKey(x => x.UserId);
+           // builder.HasOne(x => x.AppUser).WithMany(x => x.Transactions).HasForeignKey(x => x.UserId);
 
         }
     }
