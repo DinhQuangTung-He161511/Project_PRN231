@@ -1,5 +1,6 @@
 ﻿using Data.Configuration;
 using Data.Entities;
+using Data.Extensions;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -41,12 +42,10 @@ namespace Data.EF
             //modelBuilder.Entity<IdentityUserClaim<Guid>>().ToTable("AppUserClaims");
             //modelBuilder.Entity<IdentityUserRole<Guid>>().ToTable("AppUserRoles").HasKey(x => new { x.UserId, x.RoleId });
             //modelBuilder.Entity<IdentityUserLogin<Guid>>().ToTable("AppUserLogins").HasKey(x => x.UserId);
-
-            //modelBuilder.Entity<IdentityRoleClaim<Guid>>().ToTable("AppRoleClaims");
             //modelBuilder.Entity<IdentityUserToken<Guid>>().ToTable("AppUserTokens").HasKey(x => x.UserId);
 
             //Data seeding
-            // modelBuilder.Seed();
+            modelBuilder.Seed();
             //base.OnModelCreating(modelBuilder);
 
         }
