@@ -19,6 +19,6 @@ namespace Data.Entities
 
         public DateTime DateCreated { get; set; }
 
-       // public AppUser AppUser { get; set; }
+       public AppUser AppUser { get; set; }
     }
 }
