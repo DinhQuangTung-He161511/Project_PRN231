@@ -1,11 +1,11 @@
-﻿using Service.Dtos;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ViewModels.Common;
 
-namespace Service.Catalog.Products.DTOs.Manage
+namespace ViewModels.Catalog.Product.Manage
 {
     public class GetProductPagingRequest : PagingRequestBase
     {

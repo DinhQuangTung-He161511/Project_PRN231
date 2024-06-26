@@ -1,10 +1,11 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Service.Catalog.Products.DTOs.Manage
+namespace ViewModels.Catalog.Product.Manage
 {
     public class ProductCreateRequest
     {
@@ -20,5 +21,6 @@ namespace Service.Catalog.Products.DTOs.Manage
 
         public string SeoAlias { get; set; }
         public string LanguageId { set; get; }
+        public IFormFile ThumbnailImage { set; get; }
     }
 }

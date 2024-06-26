@@ -1,11 +1,7 @@
-﻿using Service.Catalog.Products.DTOs;
-using Service.Catalog.Products.DTOs.Manage;
-using Service.Dtos;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.AspNetCore.Http;
+using ViewModels.Catalog.Product;
+using ViewModels.Catalog.Product.Manage;
+using ViewModels.Common;
 
 namespace Service.Catalog.Products
 {
@@ -17,7 +13,12 @@ namespace Service.Catalog.Products
         Task<bool> UpdatePrice(int productid,decimal newPrice);
         Task<bool> UpdateStock(int productid,int addedQuantity);
         Task AddViewCount(int productid);
-        Task<List<ProductViewModel>> GetAll();
+        Task<int> AddImage(int productId, List<IFormFile> files);
+        Task<int> RemoveImage(int imageId);
+        Task<int> UpdateImage(int imageId,string caption,bool IsDefault);
+        Task<ProductImageViewModel> GetImageById(int imageId);
+
+        Task<List<ProductImageViewModel>> GetListImages(int productId);
         Task<PageResult<ProductViewModel>> GetAllPaging(GetProductPagingRequest request);
     }
 }

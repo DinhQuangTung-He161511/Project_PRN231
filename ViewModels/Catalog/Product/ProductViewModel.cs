@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Service.Catalog.Products.DTOs
+namespace Service.Catalog.Products
 {
     public class ProductViewModel
     {
@@ -22,6 +22,5 @@ namespace Service.Catalog.Products.DTOs
 
         public string SeoAlias { get; set; }
         public string LanguageId { set; get; }
-
     }
 }

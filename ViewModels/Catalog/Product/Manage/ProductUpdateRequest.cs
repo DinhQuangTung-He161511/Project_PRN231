@@ -1,11 +1,12 @@
-﻿using Data.Entities;
+﻿using System.Data;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 
-namespace Service.Catalog.Products.DTOs.Manage
+namespace ViewModels.Catalog.Product.Manage
 {
     public class ProductUpdateRequest
     {
@@ -18,6 +19,7 @@ namespace Service.Catalog.Products.DTOs.Manage
 
         public string SeoAlias { get; set; }
         public string LanguageId { set; get; }
+        public IFormFile ThumbnailImage { set; get; }
 
     }
 }

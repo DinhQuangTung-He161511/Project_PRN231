@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Service.Dtos
+namespace ViewModels.Common
 {
     public class PageResult<T>
     {
-        List<T> Items { get; set; }
-        public int TotalRecord {  get; set; }
+        public List<T> Items { get; set; }
+        public int TotalRecord { get; set; }
     }
 }
