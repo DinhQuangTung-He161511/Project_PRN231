@@ -1,10 +1,12 @@
-﻿using ViewModels.Catalog.Product.Public;
+﻿
+using ViewModels.Catalog.Product;
 using ViewModels.Common;
 
 namespace Service.Catalog.Products
 {
     public interface IPublicProduct
     {
-        Task<PageResult<ProductViewModel>> GetAllByCategoryId(GetProductPagingRequest request);
+        Task<PageResult<ProductViewModel>> GetAllByCategoryId(GetPublicProductPagingRequest request);
+        Task<List<ProductViewModel>> GetAll();
     }
 }

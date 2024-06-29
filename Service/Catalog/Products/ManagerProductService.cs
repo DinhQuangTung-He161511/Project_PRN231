@@ -2,18 +2,11 @@
 using Data.Entities;
 using Microsoft.EntityFrameworkCore;
 using ViewModels.Catalog.Product;
-using ViewModels.Catalog.Product.Manage;
-
 using Utilities.Exceptions;
 using ViewModels.Common;
 using Microsoft.AspNetCore.Http;
-using DocumentFormat.OpenXml.VariantTypes;
 using System.Net.Http.Headers;
 using Service.Common;
-using DocumentFormat.OpenXml.Office2016.Excel;
-using DocumentFormat.OpenXml.Wordprocessing;
-using Microsoft.AspNetCore.Server.IISIntegration;
-using Microsoft.Data.SqlClient;
 
 namespace Service.Catalog.Products
 {
@@ -87,18 +80,18 @@ namespace Service.Catalog.Products
             {
                 throw new EshopExceptions("Cannot find product");
             }
-            var images =  _context.ProductImages.Where(x=> x.ProductId == productid);
+            var images = _context.ProductImages.Where(x => x.ProductId == productid);
             foreach (var image in images)
             {
-               await _storageService.DeleteFileAsync(image.ImagePath);
+                await _storageService.DeleteFileAsync(image.ImagePath);
             }
-          
+
             _context.Products.Remove(product);
             return await _context.SaveChangesAsync();
         }
 
 
-        public async Task<PageResult<ProductViewModel>> GetAllPaging(GetProductPagingRequest request)
+        public async Task<PageResult<ProductViewModel>> GetAllPaging(GetManageProductPagingRequest request)
         {
             //1.Select join
             var query = from p in _context.Products

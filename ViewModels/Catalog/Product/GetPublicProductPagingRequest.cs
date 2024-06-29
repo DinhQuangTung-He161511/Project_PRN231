@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using ViewModels.Common;
 
-namespace ViewModels.Catalog.Product.Public
+namespace ViewModels.Catalog.Product
 {
-    public class GetProductPagingRequest :PagingRequestBase
+    public class GetPublicProductPagingRequest :PagingRequestBase
     {
         public int? CategoryId { get; set; }
     }

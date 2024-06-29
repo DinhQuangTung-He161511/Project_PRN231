@@ -1,3 +1,7 @@
+using Data.EF;
+using Microsoft.EntityFrameworkCore;
+using Service.Catalog.Products;
+
 namespace DinhQuangTung_ProjectPRN231
 {
     public class Program
@@ -7,11 +11,13 @@ namespace DinhQuangTung_ProjectPRN231
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+            builder.Services.AddDbContext<EshopDBContext>(options =>
+                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+            builder.Services.AddTransient<IPublicProduct, PublicProductService>();
 
             var app = builder.Build();
 
@@ -23,10 +29,7 @@ namespace DinhQuangTung_ProjectPRN231
             }
 
             app.UseAuthorization();
-
-
             app.MapControllers();
-
             app.Run();
         }
     }
