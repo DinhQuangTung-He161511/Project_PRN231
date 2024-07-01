@@ -16,7 +16,7 @@ namespace Service.Catalog.Products
         Task<int> RemoveImage(int imageId);
         Task<int> UpdateImage(int imageId, string caption, bool IsDefault);
         Task<ProductImageViewModel> GetImageById(int imageId);
-
+        Task<ProductViewModel> GetById(int productId,string languaeId);
         Task<List<ProductImageViewModel>> GetListImages(int productId);
         Task<PageResult<ProductViewModel>> GetAllPaging(GetManageProductPagingRequest request);
     }

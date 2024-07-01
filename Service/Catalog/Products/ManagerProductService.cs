@@ -70,7 +70,8 @@ namespace Service.Catalog.Products
                 };
             }
             _context.Products.Add(product);
-            return await _context.SaveChangesAsync();
+             await _context.SaveChangesAsync();
+            return product.Id;
         }
 
         public async Task<int> Delete(int productid)
@@ -228,6 +229,30 @@ namespace Service.Catalog.Products
         public Task<List<ProductImageViewModel>> GetListImages(int productId)
         {
             throw new NotImplementedException();
+        }
+
+        public async Task<ProductViewModel> GetById(int productId, string languaeId)
+        {
+           var product = await _context.Products.FindAsync( productId);
+            var productTranslation = await _context.ProductTranslations.FirstOrDefaultAsync(x=>x.ProductId == productId
+            &&x.LanguageId==languaeId);
+            var productViewModel = new ProductViewModel()
+            {
+                Id = productId,
+                DateCreated = product.DateCreated,
+                Description = productTranslation != null ? productTranslation.Description : null,
+                LanguageId = productTranslation.LanguageId,
+                Details = productTranslation != null ? productTranslation.Details : null,
+                Name = productTranslation != null ? productTranslation.Name : null,
+                OriginalPrice = product.OriginalPrice,
+                Price = product.Price,
+                SeoAlias = productTranslation != null ? productTranslation.SeoAlias : null,
+                SeoDescription = productTranslation != null ? productTranslation.SeoDescription : null,
+                SeoTitle = productTranslation != null ? productTranslation.SeoTitle : null,
+                Stock=product.Stock,
+                ViewCount =product.ViewCount,
+            };
+            return productViewModel;
         }
     }
 }
