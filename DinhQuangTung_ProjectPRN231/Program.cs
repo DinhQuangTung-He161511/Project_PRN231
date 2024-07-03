@@ -6,6 +6,14 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Data.Entities;
+using DocumentFormat.OpenXml.Office2016.Drawing.ChartDrawing;
+using Microsoft.AspNetCore.Identity;
+using Service.Catalog.Categories;
+using Service.System.Language;
+using Service.System.Roles;
+using Service.System.Users;
+using Service.Ulitities;
 
 namespace DinhQuangTung_ProjectPRN231
 {
@@ -25,8 +33,19 @@ namespace DinhQuangTung_ProjectPRN231
 
             //Declare DI 
             builder.Services.AddTransient<IStorageService, FileStorageService>();
-            builder.Services.AddTransient<IPublicProduct, PublicProductService>();
-            builder.Services.AddTransient<IManageProductService, ManagerProductService>();
+            builder.Services.AddTransient<IStorageService, FileStorageService>();
+
+            builder.Services.AddTransient<IProductService, ProductService>();
+            builder.Services.AddTransient<ICategoryService, CategoryService>();
+
+            builder.Services.AddTransient<UserManager<AppUser>, UserManager<AppUser>>();
+            builder.Services.AddTransient<SignInManager<AppUser>, SignInManager<AppUser>>();
+            builder.Services.AddTransient<RoleManager<AppRole>, RoleManager<AppRole>>();
+            builder.Services.AddTransient<ILanguageService, LanguageService>();
+            builder.Services.AddTransient<ISlideService, SlideService>();
+
+            builder.Services.AddTransient<IRoleService, RoleService>();
+            builder.Services.AddTransient<IUserService, UserService>();
 
             var app = builder.Build();
 

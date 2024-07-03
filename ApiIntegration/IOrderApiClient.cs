@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ViewModels.Common
+namespace ApiIntegration
 {
-    public class PagedResult<T> : PagedResultBase
+    internal class IOrderApiClient
     {
-        public List<T> Items { set; get; }
     }
 }

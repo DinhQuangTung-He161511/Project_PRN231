@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ViewModels.System.Roles;
 
-namespace ViewModels.Common
+namespace Service.System.Roles
 {
-    public class PagedResult<T> : PagedResultBase
+    public interface IRoleService
     {
-        public List<T> Items { set; get; }
+        Task<List<RoleVm>> GetAll();
     }
 }

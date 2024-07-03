@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ViewModels.Ulitilies.Slides;
 
-namespace ViewModels.Common
+namespace ApiIntegration
 {
-    public class PagedResult<T> : PagedResultBase
+    public interface ISlideApiClient
     {
-        public List<T> Items { set; get; }
+        Task<List<SlideVm>> GetAll();
     }
 }

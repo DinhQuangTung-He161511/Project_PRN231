@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ViewModels.Common;
+using ViewModels.System.Languages;
 
-namespace ViewModels.Catalog.Product
+namespace ApiIntegration
 {
-    public class GetPublicProductPagingRequest : PagingRequestBase
+    public interface ILanguageApiClient
     {
-        public int? CategoryId { get; set; }
+        Task<ApiResult<List<LanguageVm>>> GetAll();
     }
 }

@@ -5,14 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using ViewModels.Common;
 
-namespace ViewModels.Catalog.Product
+namespace ViewModels.System.Users
 {
-    public class GetManageProductPagingRequest : PagingRequestBase
+    public class GetUserPagingRequest : PagingRequestBase
     {
         public string Keyword { get; set; }
-
-        public string LanguageId { get; set; }
-
-        public int? CategoryId { get; set; }
     }
 }
